@@ -5,7 +5,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 .\.venv\Scripts\Activate.ps1
 
 to install cuda 12.9 and ultralytics:
-pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129\
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129
 pip install ultralytics
 
 run this after installing all libraries:
