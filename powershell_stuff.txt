@@ -4,4 +4,7 @@ create ur own .venv first
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 .\.venv\Scripts\Activate.ps1
 
-pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu129\
+
+run this after installing all libraries:
+pip freeze > requirements.txt
