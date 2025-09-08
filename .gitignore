@@ -1,2 +1,4 @@
 .venv
-weights/checkpoints/*
+datasets/*
+!datasets/data.yaml
+__pycache__/
