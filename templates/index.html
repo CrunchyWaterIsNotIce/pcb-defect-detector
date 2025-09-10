@@ -5,21 +5,38 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="pcb-background">
-        <div class="webcam-box">
-            <img id="placeholder" src="{{ url_for('static', filename='webcam-off.png') }}" alt="Camera Off">
-            <img id="webcam-stream" src="{{ url_for('video_feed') }}" alt="Live Webcam">
-        </div>
+    <div class="background-container">
+        <img class="background-svg" src="{{ url_for('static', filename='pcbBG.svg') }}" alt="PCB Background">
+
+        <div class="webcam-container">
+            <button id="prompt-container">
+            </button>
+
+            <img id="webcam-stream" 
+                 src="" 
+                 data-src="{{ url_for('video_feed') }}" 
+                 alt="Live Webcam" 
+                 style="display: none;"> </div>
     </div>
 
     <script>
-        // Replaces placeholder with live video when available
+        // Put this inside the <script> tag in index.html
+        const startButton = document.getElementById("start-camera-btn");
+        const promptContainer = document.getElementById("prompt-container");
         const webcamStream = document.getElementById("webcam-stream");
-        const placeholder = document.getElementById("placeholder");
 
-        webcamStream.onload = () => {
-            placeholder.style.display = "none"; // hide placeholder pic when live stream is displayed
-        }
+        // Add a click event listener to the button
+        promptContainer.addEventListener("click", () => {
+            // 1. Set the image 'src' to the URL stored in 'data-src'
+            // This will start the browser's request to your Flask video feed
+            webcamStream.src = webcamStream.dataset.src;
+
+            // 2. Show the webcam stream element
+            webcamStream.style.display = "block";
+
+            // 3. Hide the prompt container
+            promptContainer.style.display = "none";
+        });
     </script>
 </body>
 </html>

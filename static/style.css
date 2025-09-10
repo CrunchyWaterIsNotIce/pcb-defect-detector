@@ -1,35 +1,72 @@
 body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    background-color: #234c32;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.pcb-background {
-    width: 100vw;
-    height: 100vh;
-    background-image: url('/static/pcbBG.svg');
-    background-size: cover;
-    background-position: center;
-    position: relative; /* abs positioning */
+.background-container {
+    position: relative;
+    width: 95vw;
+    height: 95vh;
+    max-width: calc(95vh * (16 / 9));
+    max-height: calc(95vw * (9 / 16));
+    margin: auto;
 }
 
-.webcam-box {
-    width: 500px;
-    height: 450px;
-   
-  
-    overflow: hidden;
-    background: black;
-
+.background-svg {
     position: absolute;
-    top: 54%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* centers the box */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.webcam-box video,
-.webcam-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.webcam-container {
+    position: absolute;
+    top: 53.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 38%;
+    height: 61%;
+    
+    overflow: hidden;
+    border-radius: 4px; 
+}
+
+.webcam-container img {
+    height: 100%;
+    object-fit: cover;
+}
+
+#prompt-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0);;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+#prompt-container:hover {
+    background-color: rgba(195, 144, 25, 0.2);
+}
+
+#placeholder {
+    display: block;
 }
