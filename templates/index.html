@@ -2,30 +2,24 @@
 <html>
 <head>
     <title>YOLO PCB Defect Detection</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            color: #333;
-        }
-        img {
-            border: 2px solid #333;
-            border-radius: 8px;
-            max-width: 90%;
-            max-height: 80vh;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Real-Time PCB Defect Detection</h1>
-    <img src="{{ url_for('video_feed') }}" alt="Video Stream">
+    <div class="pcb-background">
+        <div class="webcam-box">
+            <img id="placeholder" src="{{ url_for('static', filename='webcam-off.png') }}" alt="Camera Off">
+            <img id="webcam-stream" src="{{ url_for('video_feed') }}" alt="Live Webcam">
+        </div>
+    </div>
+
+    <script>
+        // Replaces placeholder with live video when available
+        const webcamStream = document.getElementById("webcam-stream");
+        const placeholder = document.getElementById("placeholder");
+
+        webcamStream.onload = () => {
+            placeholder.style.display = "none"; // hide placeholder pic when live stream is displayed
+        }
+    </script>
 </body>
 </html>
