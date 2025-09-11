@@ -3,7 +3,7 @@
 
 VisionPCB is a web-based application that uses a fine-tuned YOLO model to automatically detect common manufacturing defects on Printed Circuit Boards (PCBs). This project aims to streamline the quality assurance process in electronics manufacturing by providing a fast and accurate inspection tool.
 
-![VisionPCB Demo GIF](assets/demo.gif)
+![VisionPCB Demo GIF](static/demo.gif)
 
 ---
 
