@@ -61,5 +61,5 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    # Use threaded=True to handle multiple clients, debug=False for production
-    app.run(debug=True, threaded=True)
+    # debug=False for production
+    app.run(debug=False, threaded=True)
